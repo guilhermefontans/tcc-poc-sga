@@ -4,7 +4,7 @@ const routes   = require('./routes');
 const cors     = require('cors');
 const app      = express();
 
-mongoose.connect('mongodb://localhost:27017/autenticacao', {
+mongoose.connect('mongodb://localhost:27017/sca', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
