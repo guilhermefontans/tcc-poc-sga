@@ -31,7 +31,7 @@ module.exports = {
     async store(data) {
         let {de, para, assunto, texto, html, status} = data;
 
-        Alerta = await Alerta.create({
+        alerta = await Alerta.create({
             de,
             para,
             assunto,
@@ -40,6 +40,6 @@ module.exports = {
             status
         });
 
-        return response.json(user);
+        return response.json(alerta);
     }
 }

@@ -18,7 +18,6 @@ module.exports = {
     async store(request, response) {
         const {username, name, password} = request.body;
 
-        console.log(name, username, password);
         user = await User.create({
             name,
             username,

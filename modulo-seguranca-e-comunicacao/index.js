@@ -11,8 +11,8 @@ mongoose.connect('mongodb://localhost:27017/seguranca-comunicacao', {
 });
 
 app.use(cors({ origin: 'http://localhost:3000'}));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(routes);
 
 app.listen(3339);
