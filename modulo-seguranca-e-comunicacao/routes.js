@@ -29,7 +29,8 @@ routes.get('/areas/:nome', (request, response) => {
 
 
 routes.post('/afetados', (request, response) => {
-    AfetadoController.store(request, response);
+    AfetadoController.store(request, response)
+        .then(console.log(response));
 });
 
 routes.get('/afetados', (request, response) => {

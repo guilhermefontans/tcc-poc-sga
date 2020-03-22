@@ -8,7 +8,7 @@ module.exports = {
         if(request.body.username === user.username && request.body.password === user.password){
             const id = 1;
             var token = jwt.sign({ id }, process.env.SECRET, {
-              expiresIn: 300
+              expiresIn: 60 *60 * 24
             });
             response.status(200).send({ auth: true, token: token });
           }

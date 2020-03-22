@@ -1,7 +1,8 @@
 const express  = require('express');
-const cors = require('cors');
+const mongoose = require('mongoose');
+const cors     = require('cors');
 const routes   = require('./routes');
-const app = express();
+const app      = express();
 
 mongoose.connect('mongodb://localhost:27017/sca', {
     useNewUrlParser: true,
@@ -10,6 +11,7 @@ mongoose.connect('mongodb://localhost:27017/sca', {
 });
 
 app.use(cors({ origin: 'http://localhost:3000'}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(routes);
 

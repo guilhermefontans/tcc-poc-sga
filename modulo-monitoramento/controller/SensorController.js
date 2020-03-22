@@ -3,7 +3,7 @@ const Sensor = require('../model/Sensor');
 
 module.exports = {
     async store(request, response) {
-        let {nome, tipo, area_id} = request.body;
+        const {nome, tipo, area_id} = request.body;
         area = await Area.findOne({
            _id : area_id
         });
@@ -24,5 +24,5 @@ module.exports = {
     async index(request, response) {
         const sensores = await Sensor.find();
         return response.json(sensores);
-    },
+    }
 }

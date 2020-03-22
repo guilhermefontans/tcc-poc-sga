@@ -1,3 +1,4 @@
+require("dotenv-safe").config();
 var jwt = require('jsonwebtoken');
 
 module.exports = function verifyJWT(req, res, next){
