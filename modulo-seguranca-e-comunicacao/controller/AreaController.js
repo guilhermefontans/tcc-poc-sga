@@ -13,7 +13,6 @@ module.exports = {
 
     async index(request, response) {
         const areas = await Area.find();
-        console.log(areas)
         return response.json(areas);
     },
 

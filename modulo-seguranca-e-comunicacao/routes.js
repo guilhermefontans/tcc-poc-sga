@@ -27,7 +27,6 @@ routes.get('/areas/:nome', (request, response) => {
         .then(console.log(response.body));
 });
 
-
 routes.post('/afetados', (request, response) => {
     AfetadoController.store(request, response)
         .then(console.log(response));

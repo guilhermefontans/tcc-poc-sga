@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import './components/login.component'
+import { Link } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-        Login Page
-    </div>
+          App Page
+          <Link to="/login">Ir para a página sobre \o/</Link>
+      </div>
   );
 }
 

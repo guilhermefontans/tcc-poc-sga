@@ -11,7 +11,8 @@ module.exports = {
               expiresIn: 60 *60 * 24
             });
             response.status(200).send({ auth: true, token: token });
-          }
-          response.status(500).send('Login inválido!');
+            return response
+        }
+        response.status(500).send('Login inválido!');
     },
 }
