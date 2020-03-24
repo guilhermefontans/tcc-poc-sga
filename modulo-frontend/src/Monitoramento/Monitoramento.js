@@ -1,14 +1,16 @@
 import React from 'react';
 import '../index.css';
 import { Link } from 'react-router-dom'
-import PrivateRoute from '../helpers/verify-token'
+import { Container, Row, Col } from 'react-bootstrap';
 
 function Monitoramento() {
   return (
-    <div className="Monitoramento">
-          Monitoramento page
-          <Link to="/login">Ir para a página sobre \o/</Link>
-      </div>
+    <Container>
+      <Row>
+      <Link to="/login">Ir para a página sobre \o/</Link>
+        <Col>1 of 1</Col>
+      </Row>
+    </Container>
   );
 }
 

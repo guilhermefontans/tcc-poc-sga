@@ -30,6 +30,10 @@ router.post('/areas', verifyJWT, (req, res, next) => {
   segurancaComunicacaoServiceProxy(req, res, next);
 });
 
+router.get('/areas', verifyJWT, (req, res, next) => {
+  segurancaComunicacaoServiceProxy(req, res, next);
+});
+
 router.post('/afetados', verifyJWT, (req, res, next) => {
   segurancaComunicacaoServiceProxy(req, res, next);
 });
