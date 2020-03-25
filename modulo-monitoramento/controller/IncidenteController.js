@@ -6,9 +6,7 @@ module.exports = {
     async store(request, response) {
         let {grauRisco, tipo, data, area_id} = request.body;
 
-        area = await Area.findOne({
-           _id : area_id
-        });
+        area = await Area.findOne({_id : area_id});
 
         data = new Date(data);
 
@@ -21,8 +19,10 @@ module.exports = {
             tipo,
             data,
             area
-        })
-        return response.json(incidente);
+        });
+
+        await this.chamaModuloComunicacao(request, response)
+        return response.json(incidente);    
     },
 
     async index(request, response) {
@@ -32,13 +32,18 @@ module.exports = {
 
     async chamaModuloComunicacao(request, response) {
         const token = request.headers['x-access-token'];
-        const data = { afetados, de, assunto, texto, html} = request.body;
-        const apiResponse = await axios.post(
-            'https://localhost:3000/notifica',
+        const data = {area_id, grauRisco, tipo} = request.body;
+        console.log("na chamada de comunicacao")
+        const api = axios.create({
+            baseURL: 'http://localhost:5000/'
+        })
+        response = await api.post(
+            '/disparar-alertas',
             data,
             {
                 headers : {'x-access-token': token}
             }
-        );
+        )
+        //console.log(response)
     }
 }

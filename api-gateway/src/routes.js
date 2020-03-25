@@ -38,6 +38,14 @@ router.post('/afetados', verifyJWT, (req, res, next) => {
   segurancaComunicacaoServiceProxy(req, res, next);
 });
 
+router.post('/disparar-alertas', verifyJWT, (req, res, next) => {
+  segurancaComunicacaoServiceProxy(req, res, next);
+});
+
+router.get('/afetados', verifyJWT, (req, res, next) => {
+  segurancaComunicacaoServiceProxy(req, res, next);
+});
+
 router.post('/incidentes', verifyJWT, (req, res, next) => {
   monitoramentoServiceProxy(req, res, next);
 });

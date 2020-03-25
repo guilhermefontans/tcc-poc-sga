@@ -8,8 +8,8 @@ routes.get('/', async function (request, response){
     return response.json({ message: 'Modulo de segurança e comunicação' });
 });
 
-routes.post('/dispara-alerta', (request, response) => {
-    AlertaController.notifica(request, response);
+routes.post('/disparar-alertas', (request, response) => {
+    AlertaController.notifica(request, response).then(console.log(response));
 }); 
 
 routes.post('/areas', (request, response) => {

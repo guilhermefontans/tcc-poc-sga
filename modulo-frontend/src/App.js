@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-          App Page
-          <Link to="/login">Ir para a página sobre \o/</Link>
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/monitoramento/incidentes/novo">cadastrar incidente</Link>
+          <Link to="/seguranca/afetados/novo">cadastrar afetado</Link>
       </div>
   );
 }

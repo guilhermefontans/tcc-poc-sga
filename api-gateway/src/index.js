@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 app.use(cors({ origin: 'http://localhost:3000'}));
+app.use(cors({ origin: 'http://localhost:3338'}));
 app.use(logger('dev'));
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));

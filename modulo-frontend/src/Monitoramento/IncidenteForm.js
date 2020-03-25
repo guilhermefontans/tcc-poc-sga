@@ -44,7 +44,7 @@ function IncidenteForm() {
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="data">
                     <Form.Label>Data</Form.Label>
-                    <Form.Control name="data" type="datetime" placeholder="dd/mm/YYYY" onChange={e => setData(e.target.value)}/>
+                    <Form.Control name="data" type="datetime" placeholder="YYYY-MM-DD" onChange={e => setData(e.target.value)}/>
                 </Form.Group>
                 <Form.Group controlId="tipo">
                     <Form.Label>Gravidade do incidente</Form.Label>

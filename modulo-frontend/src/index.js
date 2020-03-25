@@ -5,6 +5,7 @@ import App from './App';
 import Login from './Login/Login';
 import Monitoramento from './Monitoramento/Monitoramento';
 import IncidenteForm from './Monitoramento/IncidenteForm';
+import AfetadosForm from './SegurancaComunicacao/AfetadoForm';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css'
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
@@ -16,7 +17,8 @@ ReactDOM.render(
             <Route path="/" exact={true} component={App} />
             <Route path="/login" component={Login} />
             <PrivateRoute exact path="/monitoramento" component={Monitoramento} />
-            <PrivateRoute exact path="/monitoramento/novo" component={IncidenteForm} />
+            <PrivateRoute exact path="/monitoramento/incidentes/novo" component={IncidenteForm} />
+            <PrivateRoute exact path="/seguranca/afetados/novo" component={AfetadosForm} />
         </Switch>
     </ BrowserRouter>,
   document.getElementById('root')
