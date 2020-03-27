@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import '../index.css';
+import '../../index.css';
 import { Container, Row, Form, Button } from 'react-bootstrap';
-import api from '../services/sca.service'
+import api from  '../../services/sca.service'
 
 function IncidenteForm() {
 
@@ -39,7 +39,7 @@ function IncidenteForm() {
 
     return (
         
-        <Container>
+        <Container>sdsadsa
             <Row>
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="data">

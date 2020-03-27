@@ -1,0 +1,14 @@
+.sidebar {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+  
+.sidebar-subitem-text {
+  font-size: 0.8rem;
+}
+
+.link {
+  color: #FFF;
+}
+.link:hover {
+    color: #00F
+}
