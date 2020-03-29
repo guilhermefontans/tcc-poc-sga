@@ -2,7 +2,6 @@ import React from 'react';
 import '../../index.css';
 import { Link } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap';
-import api from  '../../services/sca.service'
 
 function Monitoramento() {
   return (
