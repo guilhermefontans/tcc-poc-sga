@@ -24,7 +24,9 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
+      <Hidden smDown>
+        <div className={classes.toolbar} />
+      </Hidden>
       <Divider />
       <MenuList>
           <MenuItem component={Link} to="/">
@@ -77,11 +79,21 @@ function ResponsiveDrawer(props) {
           <MenuList>
               <MenuItem
                 to="/seguranca/afetados/novo"
-                key="incidentes"
+                key="afetados-novo"
                 className={classes.nested}
                 component={Link}
               >
-                Afetados
+                Cadastrar Afetados
+              </MenuItem>
+          </MenuList>
+          <MenuList>
+              <MenuItem
+                to="/seguranca/afetados"
+                key="afetados"
+                className={classes.nested}
+                component={Link}
+              >
+                Ver Afetados
               </MenuItem>
           </MenuList>
           <MenuList>

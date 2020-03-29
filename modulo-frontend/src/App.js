@@ -1,15 +1,24 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter} from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import ResponsiveDrawer from './components/Drawer';
-import { Switch, Route } from 'react-router-dom';
-import AfetadosForm from './pages/SegurancaComunicacao/AfetadoForm'
-import IncidenteForm from './pages/Monitoramento/IncidenteForm'
-import FormTest from './pages/FormTest'
-import Login from './Login'
-import PrivateRoute from './helpers/verify-token'
+import Grid from '@material-ui/core/Grid';
+import Routes from './routes'
+import { createMuiTheme } from '@material-ui/core/styles';
+import teal from '@material-ui/core/colors/teal';
 
+  const theme = createMuiTheme({
+      palette: {
+        primary: teal,
+        secondary: {
+          main: '#aed581',
+        },
+        type: 'dark'
+      },
+      
+    });
+      
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -23,10 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
+    zIndex : theme.zIndex.drawer +1
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -46,27 +52,31 @@ const useStyles = makeStyles((theme) => ({
   nested: {
     paddingLeft: theme.spacing(4),
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 function App() {
   const classes = useStyles();
   return (
-    <BrowserRouter>
-          <div className={classes.toolbar} />
-          <div className={classes.root}>
-            <ResponsiveDrawer classes={classes}/>
-            <main className={classes.content}>
-              <Switch >
-                <Route exact path="/" render={() => <div>Home</div>} />
-                <Route exact path="/login" component={Login} />
-                <PrivateRoute exact path="/monitoramento/incidentes/novo" component={IncidenteForm} />
-                <PrivateRoute exact path="/form" component={FormTest} />
-                <PrivateRoute exact path="/seguranca/afetados/novo" component={AfetadosForm} />
-              </Switch>
-            </main>
-          </div>
-    </BrowserRouter>
+    <MuiThemeProvider theme={theme}>
+      <BrowserRouter>
+            <div className={classes.toolbar} />
+            <div className={classes.root}>
+              <Grid container >       
+                <ResponsiveDrawer classes={classes}/>
+                <main className={classes.content}>
+                  <Routes />
+                </main>
+              </Grid>
+            </div>
+      </BrowserRouter>
+    </MuiThemeProvider>
   );
 }
-
 export default App;
