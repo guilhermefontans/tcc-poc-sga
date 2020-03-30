@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Router } from 'react-router-dom';
+import Login from '../Login'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     
@@ -7,7 +8,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         let token = "";
         token = localStorage.getItem("token");
         if (!token) {
-            return <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+            window.location.reload()
         }
 
         return <Component {...props} />

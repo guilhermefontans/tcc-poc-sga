@@ -11,6 +11,7 @@ import Alert from '@material-ui/lab/Alert';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import CloseIcon from '@material-ui/icons/Close';
+import Typography from '@material-ui/core/Typography';
 
 function AfetadoForm() {
 
@@ -64,7 +65,10 @@ function AfetadoForm() {
 
     return (
         <Grid container justify="center"  spacing={1}>
-           <Grid  item xs={12} lg={9} xl={6}>
+            <Grid item xs={12} lg={9}>
+                <Typography variant="h4" color="textSecondary" align="center">Cadastro de afetados</Typography>
+            </Grid>
+            <Grid  item xs={12} lg={9} xl={6}>
                 <Paper variant="outlined">
                     <Grid container justify="center">
                         <Grid item xs={6}>
@@ -83,7 +87,7 @@ function AfetadoForm() {
                                 </IconButton>
                             }
                             >
-                            Close me!
+                            Afetado cadastrado com sucesso!!
                             </Alert>
                         </Collapse>
                             <form onSubmit={handleSubmit} className={classes.form}>

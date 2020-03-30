@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import AfetadosForm from '../pages/SegurancaComunicacao/AfetadoForm'
 import IncidenteForm from '../pages/Monitoramento/IncidenteForm'
 import AfetadosList from '../pages/SegurancaComunicacao/AfetadosList'
-import FormTest from '../pages/FormTest'
+import FormTest from '../pages/FormTest/index'
 import Login from '../Login'
 import PrivateRoute from '../helpers/verify-token'
 

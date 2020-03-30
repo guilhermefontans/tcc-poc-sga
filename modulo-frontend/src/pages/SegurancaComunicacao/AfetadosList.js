@@ -11,6 +11,7 @@ import api from '../../services/sca.service'
 import Grid from '@material-ui/core/Grid';
 import Fade from '@material-ui/core/Fade';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     table: {
@@ -63,9 +64,13 @@ export default function SimpleTable() {
       };
 
     return (
+        
         <div className={classes.placeholder}>
         {query === 'success' ? (
         <Grid container justify="center"  spacing={1}>
+            <Grid item xs={12} lg={9}>
+                <Typography variant="h4" color="textSecondary" align="center">Listagem de afetados</Typography>
+            </Grid>
             <Grid item xs={12} lg={9}>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">

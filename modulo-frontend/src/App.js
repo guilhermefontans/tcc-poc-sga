@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Routes from './routes'
 import { createMuiTheme } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
+import Login from './Login'
 
   const theme = createMuiTheme({
       palette: {
@@ -63,6 +64,12 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+  const token = 1;
+  if (! localStorage.getItem("token")) {
+      return <Login></Login>  
+  }
+    
+
   return (
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
