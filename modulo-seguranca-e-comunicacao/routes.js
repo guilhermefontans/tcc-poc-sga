@@ -9,7 +9,9 @@ routes.get('/', async function (request, response){
 });
 
 routes.post('/disparar-alertas', (request, response) => {
-    AlertaController.notifica(request, response).then(console.log(response));
+    AlertaController.notifica(request, response)
+    console.log(response)
+    return response
 }); 
 
 routes.post('/areas', (request, response) => {

@@ -33,17 +33,16 @@ module.exports = {
     async chamaModuloComunicacao(request, response) {
         const token = request.headers['x-access-token'];
         const data = {area_id, grauRisco, tipo} = request.body;
-        console.log("na chamada de comunicacao")
         const api = axios.create({
             baseURL: 'http://localhost:5000/'
         })
-        response = await api.post(
+        responseMail = api.post(
             '/disparar-alertas',
             data,
             {
                 headers : {'x-access-token': token}
             }
         )
-        //console.log(response)
+        return response.json(responseMail)
     }
 }

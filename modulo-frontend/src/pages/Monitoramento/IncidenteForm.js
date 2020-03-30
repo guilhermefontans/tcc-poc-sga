@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import '../../index.css';
-import { Form } from 'react-bootstrap';
 import api from  '../../services/sca.service'
 import Grid from '@material-ui/core/Grid';
-import { Paper, Button } from '@material-ui/core';
+import { Paper, Button, InputLabel, Select, MenuItem } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import CloseIcon from '@material-ui/icons/Close';
+import Typography from '@material-ui/core/Typography';
+import Alert from '@material-ui/lab/Alert';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import { FormGroup } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 function IncidenteForm() {
 
@@ -12,6 +20,22 @@ function IncidenteForm() {
     const [grauRisco, setGrauRisco] = useState({});
     const [tipo, setTipo] = useState({});
     const [data, setData] = useState({});
+    const [open, setOpen] = React.useState(false);
+
+    const useStyles = makeStyles((theme) => ({
+        formControl: {
+          margin: theme.spacing(1),
+          minWidth: 120,
+        },
+        selectEmpty: {
+            marginTop: theme.spacing(2),
+          },
+          form: {
+            width: '100%', // Fix IE 11 issue.
+            marginTop: theme.spacing(1),
+          },
+  
+    }));
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -29,59 +53,111 @@ function IncidenteForm() {
         e.preventDefault()
         let token = localStorage.getItem('token');
         const dados = {area_id, grauRisco, tipo, data};
-        const response = await api.post(
+        await api.post(
             '/incidentes',
             dados,
             {
                 headers : {'x-access-token': token}
-            })
-        
-        console.log(response)
+            }).then(() => {
+                setOpen(true);
+            }
+        );
     }
+
+    const classes = useStyles();
 
     return (
         <Grid container justify="center"  spacing={1}>
-           <Grid  item xs={12}>
-                <Paper>
-                <Grid container justify="center">
-                    <Grid item xs={6}>
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group controlId="data">
-                                <Form.Label>Data</Form.Label>
-                                <Form.Control name="data" type="datetime" placeholder="YYYY-MM-DD" onChange={e => setData(e.target.value)}/>
-                            </Form.Group>
-                            <Form.Group controlId="tipo">
-                                <Form.Label>Tipo de incidente</Form.Label>
-                                <Form.Control as="select" name="tipo" onChange={e => setTipo(e.target.value)}>
-                                    <option>Secione o tipo de incidente</option>
-                                    <option key="tremor" value="tremor" >Tremor</option>
-                                    <option key="deslocamento" value="deslocamento" >Deslocamento</option>
-                                    <option key="umidade" value="umidade" >Aumento da umidade</option>
-                                </Form.Control>
-                            </Form.Group>
-                            <Form.Group controlId="grauRisco">
-                                <Form.Label>Gravidade do incidente</Form.Label>
-                                <Form.Control as="select" name="grauRisco" onChange={e => setGrauRisco(e.target.value)}>
-                                    <option>Selecione o nivel do risco</option>
-                                    <option key="baixo" value="baixo" >Baixo</option>
-                                    <option key="medio" value="medio" >Medio</option>
-                                    <option key="alto" value="alto" >Alto</option>
-                                </Form.Control>
-                            </Form.Group>
-                            <Form.Group controlId="area">
-                                <Form.Label>Area afetada</Form.Label>
-                                <Form.Control as="select" onChange={e => setAreaId(e.target.value)} >
-                                {areas && areas.map(area => (
-                                    <option value={area._id} key={area._id}>{area.nome}</option>
-                                ))}
-                                </Form.Control>
-                            </Form.Group>
-                            <Button color="primary" variant="contained" type="submit">
-                            Submit
-                            </Button>
-                        </Form>
+            <Grid item xs={12} lg={9}>
+                <Typography variant="h4" color="textSecondary" align="center">Cadastro de Incidentes</Typography>
+            </Grid>
+            <Grid  item xs={12} lg={9} xl={6}>
+                <Paper variant="outlined">
+                    <Grid container justify="center">
+                        <Grid item xs={6}>
+                        <Collapse style={{paddingTop : 30}} in={open}>
+                            <Alert
+                                action={
+                                <IconButton
+                                aria-label="close"
+                                color="inherit"
+                                size="small"
+                                onClick={() => {
+                                    setOpen(false);
+                                }}
+                                >
+                                <CloseIcon fontSize="inherit" />
+                                </IconButton>
+                            }
+                            >
+                            Incidente cadastrado com sucesso!!
+                            </Alert>
+                        </Collapse>
+                    <form onSubmit={handleSubmit} className={classes.form}>
+                                <FormGroup>
+                                    <FormControl variant="outlined" margin="normal" className={classes.formControl}>
+                                        <TextField required fullWidth margin="normal" id="outlined-basic" name="data" label="Data" variant="outlined" onChange={e => setData(e.target.value)}/>
+                                    </FormControl>
+                                </FormGroup>
+                                <FormGroup required={true}>
+                                    <FormControl variant="outlined" margin="normal" className={classes.formControl}>
+                                        <InputLabel  id="label_tipo"htmlFor="tipo">Tipo de Incidente</InputLabel>
+                                        <Select 
+                                            variant="outlined"
+                                            fullWidth
+                                            label="Tipo de Incidente"
+                                            id="tipo"
+                                            value={tipo}
+                                            onChange={e => setTipo(e.target.value)}
+                                            >
+                                                <MenuItem variant="outlined" margin="normal" value="tremor" key="tremor">Tremor</MenuItem>
+                                                <MenuItem variant="outlined" margin="normal" value="deslocamento" key="deslocamento">Deslocamento</MenuItem>
+                                                <MenuItem variant="outlined" margin="normal" value="umidade" key="umidade">Umidade</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </FormGroup>
+                                <FormGroup required={true}>
+                                    <FormControl variant="outlined" margin="normal" className={classes.formControl}>
+                                        <InputLabel  id="label_area"htmlFor="area">Area</InputLabel>
+                                        <Select 
+                                            variant="outlined"
+                                            fullWidth
+                                            label="Area"
+                                            id="area"
+                                            value={area_id}
+                                            onChange={e => setAreaId(e.target.value)}
+                                            >
+                                            {areas && areas.map(area => (
+                                                <MenuItem variant="outlined" margin="normal" value={area._id} key={area._id}>{area.nome}</MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
+                                </FormGroup>
+                                <FormGroup required={true}>
+                                    <FormControl variant="outlined" margin="normal" className={classes.formControl}>
+                                        <InputLabel  id="label_area"htmlFor="grauRisco">Grau de Risco</InputLabel>
+                                        <Select 
+                                            variant="outlined"
+                                            fullWidth
+                                            label="Grau de risco"
+                                            id="grauRisco"
+                                            value={grauRisco}
+                                            onChange={e => setGrauRisco(e.target.value)}
+                                            >
+                                                <MenuItem variant="outlined" margin="normal" value="baixo" key="baixo">Baixo</MenuItem>
+                                                <MenuItem variant="outlined" margin="normal" value="medio" key="medio">Medio</MenuItem>
+                                                <MenuItem variant="outlined" margin="normal" value="alto"  key="alto">Alto</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </FormGroup>
+                                <FormGroup>
+                                    <FormControl  style={{paddingTop: 20, paddingBottom: 20}} required={true} variant="outlined" margin="normal" className={classes.formControl}>
+                                        <Button color="secondary" margin="normal" color="primary" variant="contained" type="submit">Submit</Button>
+                                    </FormControl>
+                                </FormGroup>
+                            </form>
+                             </Grid>
                     </Grid>
-                </Grid>
                 </Paper>
             </Grid>
         </Grid>

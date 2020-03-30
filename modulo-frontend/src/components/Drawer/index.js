@@ -66,11 +66,21 @@ function ResponsiveDrawer(props) {
           <MenuList>
               <MenuItem
                 to="/monitoramento/incidentes/novo"
+                key="incidentes-novo"
+                className={classes.nested}
+                component={Link}
+              >
+                Cadastrar Incidentes
+              </MenuItem>
+          </MenuList>
+          <MenuList>
+              <MenuItem
+                to="/monitoramento/incidentes"
                 key="incidentes"
                 className={classes.nested}
                 component={Link}
               >
-                Incidentes
+                Ver Incidentes
               </MenuItem>
           </MenuList>
           <MenuItem>

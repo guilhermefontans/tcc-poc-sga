@@ -32,6 +32,7 @@ module.exports = {
                 const data = {de, para, assunto, texto, html, status: "enviado"}
                 this.store(data)
             });
+            return response.json(afetados)
         } catch (err) {
             throw new Error(err);
         }
