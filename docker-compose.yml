@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+    modulo-autenticacao:
+        container_name: api-autenticacao
+        build:
+            context: autenticacao
+            dockerfile: Dockerfile
+        ports:
+            - "3335:3335"
+        restart: on-failure
+        depends_on:
+            - mongo
+    modulo-cadastro-ativos:
+        container_name: modulo-cadastro-ativos
+        build:
+            context: modulo-cadastro-ativos
+            dockerfile: Dockerfile
+        ports:
+            - "3334:3334"
+        restart: on-failure
+        depends_on:
+            - mongo
+    modulo-monitoramento:
+        container_name: modulo-monitoramento
+        build:
+            context: modulo-monitoramento
+            dockerfile: Dockerfile
+        ports:
+            - "3338:3338"
+        restart: on-failure
+        depends_on:
+            - mongo
+    modulo-seguranca-comunicacao:
+        container_name: modulo-seguranca-comunicacao
+        build:
+            context: modulo-seguranca-e-comunicacao
+            dockerfile: Dockerfile
+        ports:
+            - "3339:3339"
+        restart: on-failure
+        depends_on:
+            - mongo
+    api-gateway:
+        container_name: api-gateway
+        build:
+            context: api-gateway
+            dockerfile: Dockerfile
+        ports:
+            - "5000:5000"
+        restart: on-failure
+        depends_on:
+            - mongo
+    mongo:
+        image: mongo
+        ports:
+        - "27017:27017"
+        volumes:
+        - data-volume-mongo:/data/db
+volumes:
+    data-volume-mongo:
