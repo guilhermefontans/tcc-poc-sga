@@ -51,6 +51,32 @@ services:
         restart: on-failure
         depends_on:
             - mongo
+    modulo-relatorios:
+        container_name: modulo-relatorios
+        build:
+            context: modulo-relatorios
+            dockerfile: Dockerfile
+        volumes:
+            - './modulo-relatorios:/usr/src/app'
+        ports:
+            - "3333:3333"
+        restart: on-failure
+        depends_on:
+            - mongo
+    modulo-frontend:
+        container_name: modulo-frontend
+        build:
+            context: modulo-frontend
+            dockerfile: Dockerfile
+        volumes:
+            - './modulo-frontend:/usr/src/app'
+        ports:
+            - "3000:3000"
+        restart: on-failure
+        depends_on:
+            - mongo
+            - api-gateway
+        stdin_open: true
     mongo:
         image: mongo
         ports:
