@@ -29,11 +29,9 @@ routes.get('/areas/:area_id', (request, response) => {
 
 routes.post('/incidentes', (request, response) => {
     IncidenteController.store(request, response)
-    return response
 });
 
 routes.get('/incidentes', (request, response) => {
     IncidenteController.index(request, response)
-    .then(console.log(response))
 });
 module.exports = routes;

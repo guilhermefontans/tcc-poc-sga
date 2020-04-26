@@ -7,8 +7,7 @@ const cors = require('cors');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-console.log("aqui no gateway")
-app.use(cors({ origin: 'http://modulo-frontend:3000'}));
+app.use(cors({ origin: 'http://localhost:3000'}));
 app.use(cors({ origin: 'http://modulo-monitoramento:3338'}));
 app.use(logger('dev'));
 app.use(helmet());

@@ -21,8 +21,8 @@ module.exports = {
             area
         });
 
-        await this.chamaModuloComunicacao(request, response)
-        return response.json(incidente);    
+        await this.chamaModuloComunicacao(request);
+        return response.json(incidente);
     },
 
     async index(request, response) {
@@ -30,12 +30,12 @@ module.exports = {
         return response.json(incidentes);
     },
 
-    async chamaModuloComunicacao(request, response) {
+    async chamaModuloComunicacao(request) {
         const token = request.headers['x-access-token'];
         const data = {area_id, grauRisco, tipo} = request.body;
         const api = axios.create({
-            baseURL: 'http://localhost:5000/'
-        })
+            baseURL: 'http://api-gateway:5000/'
+        });
         responseMail = api.post(
             '/disparar-alertas',
             data,
@@ -43,6 +43,5 @@ module.exports = {
                 headers : {'x-access-token': token}
             }
         )
-        return response.json(responseMail)
     }
 }

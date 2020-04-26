@@ -6,6 +6,8 @@ services:
         build:
             context: autenticacao
             dockerfile: Dockerfile
+        volumes:
+            - './autenticacao:/usr/src/app'
         ports:
             - "3335:3335"
         restart: on-failure
@@ -16,6 +18,8 @@ services:
         build:
             context: modulo-cadastro-ativos
             dockerfile: Dockerfile
+        volumes:
+            - './modulo-cadastro-ativos:/usr/src/app'
         ports:
             - "3334:3334"
         restart: on-failure
@@ -26,16 +30,21 @@ services:
         build:
             context: modulo-monitoramento
             dockerfile: Dockerfile
+        volumes:
+            - './modulo-monitoramento:/usr/src/app'
         ports:
             - "3338:3338"
         restart: on-failure
         depends_on:
+            - api-gateway
             - mongo
     modulo-seguranca-comunicacao:
         container_name: modulo-seguranca-comunicacao
         build:
             context: modulo-seguranca-e-comunicacao
             dockerfile: Dockerfile
+        volumes:
+            - './modulo-seguranca-e-comunicacao:/usr/src/app'
         ports:
             - "3339:3339"
         restart: on-failure
@@ -48,6 +57,8 @@ services:
             dockerfile: Dockerfile
         ports:
             - "5000:5000"
+        volumes:
+            - './api-gateway:/usr/src/app'
         restart: on-failure
         depends_on:
             - mongo

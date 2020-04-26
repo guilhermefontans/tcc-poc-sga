@@ -7,7 +7,7 @@ const cadastroAtivosServiceProxy = httpProxy('http://modulo-cadastro-ativos:3334
 const relatoriosServiceProxy = httpProxy('http://modulo-relatorios:3333');
 const autenticacaoServiceProxy = httpProxy('http://api-autenticacao:3335');
 const monitoramentoServiceProxy = httpProxy('http://modulo-monitoramento:3338');
-const segurancaComunicacaoServiceProxy = httpProxy('http://modulo-seguranca-e-comunicacao:3339');
+const segurancaComunicacaoServiceProxy = httpProxy('http://modulo-seguranca-comunicacao:3339');
 
 router.use((req, res, next) => {
     console.log("Called: ", req.path);
