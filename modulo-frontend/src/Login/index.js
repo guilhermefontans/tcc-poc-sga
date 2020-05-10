@@ -52,9 +52,11 @@ export default function Login() {
       e.preventDefault()
       const data = {username, password};
       const response = await api.post('/login', data);
-      const { token} = response.data;
+      const { token, name, role} = response.data;
       if (token) {
           localStorage.setItem("token", token);
+          localStorage.setItem("name", name);
+          localStorage.setItem("role", role);
       }
       window.location = '/'
   }

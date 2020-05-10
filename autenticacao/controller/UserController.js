@@ -16,12 +16,13 @@ module.exports = {
     },
 
     async store(request, response) {
-        const {username, name, password} = request.body;
+        const {username, name, password, role} = request.body;
 
         user = await User.create({
             name,
             username,
-            password
+            password,
+            role
         });
 
         return response.json(user);

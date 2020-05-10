@@ -10,7 +10,7 @@ module.exports = {
             var token = jwt.sign({ id }, process.env.SECRET, {
               expiresIn: 60 *60 * 24
             });
-            response.status(200).send({ auth: true, token: token });
+            response.status(200).send({ auth: true, token: token, name: user.name, role: user.role });
             return response
         }
         response.status(500).send('Login inválido!');

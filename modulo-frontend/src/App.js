@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter} from 'react-router-dom'
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import ResponsiveDrawer from './components/Drawer';
@@ -68,17 +67,16 @@ function App() {
   if (! localStorage.getItem("token")) {
       return <Login></Login>  
   }
-    
 
   return (
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
-            <div className={classes.toolbar} />
+            <div className={classes.toolbar}/>
             <div className={classes.root}>
-              <Grid container >       
+              <Grid container>
                 <ResponsiveDrawer classes={classes}/>
                 <main className={classes.content}>
-                  <Routes />
+                <Routes />
                 </main>
               </Grid>
             </div>
