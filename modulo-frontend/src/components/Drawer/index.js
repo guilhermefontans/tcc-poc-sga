@@ -152,7 +152,7 @@ function ResponsiveDrawer(props) {
       <MenuIcon />
       </IconButton>
       <Typography variant="h6" noWrap>
-          Sistema de Controle Ambiental
+          Sistema de Gestão Ambiental
       </Typography>
       </Toolbar>
       </AppBar>

@@ -10,7 +10,7 @@ function Home() {
     const role = localStorage.getItem("role")
 
     return (
-        <h1>Bem vindo {name}, você está logado como ({role})</h1>
+        <h4>Bem vindo {name}, você está logado como ({role})</h4>
     );
 }
 export default Home;

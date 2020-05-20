@@ -70,7 +70,7 @@ export default function Login() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sistema de Controle Ambiental
+          Sistema de Gestão Ambiental
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit} noValidate>
           <TextField
