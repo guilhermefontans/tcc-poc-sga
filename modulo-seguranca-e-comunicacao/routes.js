@@ -10,7 +10,6 @@ routes.get('/', async function (request, response){
 
 routes.post('/disparar-alertas', (request, response) => {
     AlertaController.notifica(request, response)
-    console.log(response)
     return response
 }); 
 
