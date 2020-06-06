@@ -58,7 +58,7 @@ export default function Login() {
           localStorage.setItem("name", name);
           localStorage.setItem("role", role);
       }
-      window.location = '/'
+      window.location = '/home'
   }
 
   return (

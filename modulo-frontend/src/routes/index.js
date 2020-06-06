@@ -13,7 +13,7 @@ export default function Routes() {
   return (
     <Switch >
       <Route exact path="/login" component={Login} />
-      <PrivateRoute exact path="/" component={Home} />
+      <PrivateRoute exact path="/home" component={Home} />
       <PrivateRoute exact path="/monitoramento/incidentes/novo" component={IncidenteForm} />
       <PrivateRoute exact path="/seguranca/afetados/novo" component={AfetadosForm} />
       <PrivateRoute exact path="/seguranca/afetados" component={AfetadosList} />
