@@ -32,11 +32,11 @@ function ResponsiveDrawer(props) {
           <MenuItem component={Link} to="/">
             Home
           </MenuItem>
-          <MenuItem>
+          <MenuItem disabled="true">
             Cadastro Ativos
           </MenuItem>
           <MenuList>
-              <MenuItem
+              <MenuItem disabled="true"
                 to="/ativos/insumos/novo"
                 key="insumos"
                 className={classes.nested}
@@ -46,7 +46,7 @@ function ResponsiveDrawer(props) {
               </MenuItem>
           </MenuList>
           <MenuList>
-              <MenuItem
+              <MenuItem disabled="true"
                 to="/ativos/barragens/novo"
                 key="barragens"
                 className={classes.nested}
@@ -55,11 +55,11 @@ function ResponsiveDrawer(props) {
                 Barragens
               </MenuItem>
           </MenuList>
-          <MenuItem>
+          <MenuItem disabled="true">
             Controle Processos
           </MenuItem>
           
-          <MenuItem>
+          <MenuItem disabled="true">
             Monitoramento
           </MenuItem>
           
@@ -83,7 +83,7 @@ function ResponsiveDrawer(props) {
                 Ver Incidentes
               </MenuItem>
           </MenuList>
-          <MenuItem>
+          <MenuItem disabled="true">
             Segurança e Comunicação
           </MenuItem>
           <MenuList>
@@ -107,7 +107,7 @@ function ResponsiveDrawer(props) {
               </MenuItem>
           </MenuList>
           <MenuList>
-              <MenuItem
+              <MenuItem disabled="true"
                 to="/seguranca/sensores/novo"
                 key="sensores"
                 className={classes.nested}
@@ -115,7 +115,7 @@ function ResponsiveDrawer(props) {
               >
                 Sensores
               </MenuItem>
-              <MenuItem
+              <MenuItem disabled="true"
                 to="/seguranca/areas/novo"
                 key="areas"
                 className={classes.nested}
@@ -124,13 +124,13 @@ function ResponsiveDrawer(props) {
                 Areas
               </MenuItem>
           </MenuList>
-          <MenuItem>
+          <MenuItem disabled="true">
             Inteligencia do Negócio
           </MenuItem>
-          <MenuItem>
+          <MenuItem disabled="true">
             Compliance
           </MenuItem>
-          <MenuItem>
+          <MenuItem disabled="true">
             Relatórios
           </MenuItem>
         </MenuList>
