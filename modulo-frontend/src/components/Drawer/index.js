@@ -116,13 +116,17 @@ function ResponsiveDrawer(props) {
               >
                 Sensores
               </MenuItem>
+          </MenuList>
+          <MenuList>
               <MenuItem disabled={true}
                 to="/seguranca/areas/novo"
                 key="areas-novo"
                 className={classes.nested}
                 component={Link}
-              >                
+              > Cadastrar Área               
               </MenuItem>
+          </MenuList>
+          <MenuList>
               <MenuItem
                 to="/seguranca/areas"
                 key="areas"
