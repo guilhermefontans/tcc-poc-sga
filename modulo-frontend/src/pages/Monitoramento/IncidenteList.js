@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 650,
+        minWidth: 100,
     },
     placeholder: {
         height: 40,

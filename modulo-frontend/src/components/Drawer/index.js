@@ -32,11 +32,12 @@ function ResponsiveDrawer(props) {
           <MenuItem component={Link} to="/">
             Home
           </MenuItem>
-          <MenuItem disabled="true">
+
+          <MenuItem disabled={true}>
             Cadastro Ativos
           </MenuItem>
           <MenuList>
-              <MenuItem disabled="true"
+              <MenuItem disabled={true}
                 to="/ativos/insumos/novo"
                 key="insumos"
                 className={classes.nested}
@@ -46,7 +47,7 @@ function ResponsiveDrawer(props) {
               </MenuItem>
           </MenuList>
           <MenuList>
-              <MenuItem disabled="true"
+              <MenuItem disabled={true}
                 to="/ativos/barragens/novo"
                 key="barragens"
                 className={classes.nested}
@@ -55,11 +56,11 @@ function ResponsiveDrawer(props) {
                 Barragens
               </MenuItem>
           </MenuList>
-          <MenuItem disabled="true">
+          <MenuItem disabled={true}>
             Controle Processos
           </MenuItem>
           
-          <MenuItem disabled="true">
+          <MenuItem disabled={true}>
             Monitoramento
           </MenuItem>
           
@@ -83,7 +84,7 @@ function ResponsiveDrawer(props) {
                 Ver Incidentes
               </MenuItem>
           </MenuList>
-          <MenuItem disabled="true">
+          <MenuItem disabled={true}>
             Segurança e Comunicação
           </MenuItem>
           <MenuList>
@@ -107,7 +108,7 @@ function ResponsiveDrawer(props) {
               </MenuItem>
           </MenuList>
           <MenuList>
-              <MenuItem disabled="true"
+              <MenuItem disabled={true}
                 to="/seguranca/sensores/novo"
                 key="sensores"
                 className={classes.nested}
@@ -115,8 +116,15 @@ function ResponsiveDrawer(props) {
               >
                 Sensores
               </MenuItem>
-              <MenuItem disabled="true"
+              <MenuItem disabled={true}
                 to="/seguranca/areas/novo"
+                key="areas-novo"
+                className={classes.nested}
+                component={Link}
+              >                
+              </MenuItem>
+              <MenuItem
+                to="/seguranca/areas"
                 key="areas"
                 className={classes.nested}
                 component={Link}
@@ -124,13 +132,13 @@ function ResponsiveDrawer(props) {
                 Areas
               </MenuItem>
           </MenuList>
-          <MenuItem disabled="true">
+          <MenuItem disabled={true}>
             Inteligencia do Negócio
           </MenuItem>
-          <MenuItem disabled="true">
+          <MenuItem disabled={true}>
             Compliance
           </MenuItem>
-          <MenuItem disabled="true">
+          <MenuItem disabled={true}>
             Relatórios
           </MenuItem>
         </MenuList>

@@ -115,7 +115,7 @@ function AfetadoForm() {
                                 </FormGroup>
                                 <FormGroup>
                                     <FormControl  style={{paddingTop: 20, paddingBottom: 20}} required={true} variant="outlined" margin="normal" className={classes.formControl}>
-                                        <Button color="secondary" margin="normal" color="primary" variant="contained" type="submit">Submit</Button>
+                                        <Button margin="normal" color="primary" variant="contained" type="submit">Submit</Button>
                                     </FormControl>
                                 </FormGroup>
                             </form>

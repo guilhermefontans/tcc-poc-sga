@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 650,
+        minWidth: 100,
     },
     placeholder: {
         height: 40,
@@ -60,7 +60,7 @@ export default function SimpleTable() {
         setQuery('progress');
         timerRef.current = setTimeout(() => {
           setQuery('success');
-        }, 2000);
+        }, 1000);
       };
 
     return (
