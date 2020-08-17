@@ -93,7 +93,7 @@ function AfetadoForm() {
                             <form onSubmit={handleSubmit} className={classes.form}>
                                 <FormGroup>
                                     <FormControl variant="outlined" margin="normal" className={classes.formControl}>
-                                        <TextField required fullWidth margin="normal" id="outlined-basic" name="email" label="Email" variant="outlined" onChange={e => setEmail(e.target.value)}/>
+                                        <TextField required fullWidth margin="normal" autoComplete="off" id="outlined-basic" name="email" label="Email" variant="outlined" onChange={e => setEmail(e.target.value)}/>
                                     </FormControl>
                                 </FormGroup>
                                 <FormGroup required={true}>

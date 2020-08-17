@@ -96,7 +96,7 @@ function IncidenteForm() {
                     <form onSubmit={handleSubmit} className={classes.form}>
                                 <FormGroup>
                                     <FormControl variant="outlined" margin="normal" className={classes.formControl}>
-                                        <TextField required fullWidth margin="normal" id="outlined-basic" name="data" label="Data" variant="outlined" onChange={e => setData(e.target.value)}/>
+                                        <TextField required fullWidth margin="normal" id="outlined-basic" autoComplete="off" name="data" label="Data" variant="outlined" onChange={e => setData(e.target.value)}/>
                                     </FormControl>
                                 </FormGroup>
                                 <FormGroup required={true}>
