@@ -118,7 +118,7 @@ function ResponsiveDrawer(props) {
               </MenuItem>
           </MenuList>
           <MenuList>
-              <MenuItem disabled={true}
+              <MenuItem disabled={false}
                 to="/seguranca/areas/novo"
                 key="areas-novo"
                 className={classes.nested}

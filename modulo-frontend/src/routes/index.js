@@ -4,6 +4,7 @@ import AfetadosForm from '../pages/SegurancaComunicacao/AfetadoForm'
 import IncidenteForm from '../pages/Monitoramento/IncidenteForm'
 import AfetadosList from '../pages/SegurancaComunicacao/AfetadosList'
 import AreasList from '../pages/SegurancaComunicacao/AreaList'
+import AreaForm from '../pages/SegurancaComunicacao/AreaForm'
 import Home from '../pages/Home'
 import IncidentesList from '../pages/Monitoramento/IncidenteList'
 import Login from '../Login'
@@ -17,6 +18,7 @@ export default function Routes() {
       <PrivateRoute exact path="/home" component={Home} />
       <PrivateRoute exact path="/monitoramento/incidentes/novo" component={IncidenteForm} />
       <PrivateRoute exact path="/seguranca/afetados/novo" component={AfetadosForm} />
+      <PrivateRoute exact path="/seguranca/areas/novo" component={AreaForm} />
       <PrivateRoute exact path="/seguranca/afetados" component={AfetadosList} />
       <PrivateRoute exact path="/seguranca/areas" component={AreasList} />
       <PrivateRoute exact path="/monitoramento/incidentes" component={IncidentesList} />
